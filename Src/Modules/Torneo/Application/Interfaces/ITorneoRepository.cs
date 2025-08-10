@@ -11,7 +11,7 @@ namespace Liga_futbol.Src.Modules.Torneo.Application.Interfaces
         Task<IEnumerable<Liga_futbol.Src.Modules.Torneo.Domain.Entities.Torneo?>> ConseguirTodo();
         void Añadir(Liga_futbol.Src.Modules.Torneo.Domain.Entities.Torneo entidad);
         void Eliminar(Liga_futbol.Src.Modules.Torneo.Domain.Entities.Torneo entidad);
-        void Actualizar(Liga_futbol.Src.Modules.Torneo.Domain.Entities.Torneo entidad);
+        void Actualizar(Liga_futbol.Src.Modules.Torneo.Domain.Entities.Torneo entidad,string nombre, int capacidad, DateTime fechaInicio, DateTime fechaFin);
         Task GuardarAsincronico();
     }
 }

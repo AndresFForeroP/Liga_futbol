@@ -10,17 +10,17 @@ internal class Program
 {
     private readonly AppDbContext? _context;
     readonly TorneoRepository repo = null!;
-    readonly TorneoServicios _service = null!;
+    readonly ServicioActualizarTorneo _service = null!;
     public Program()
     {
         var context = DbContextFactory.Create();
         _context = context;
         repo = new TorneoRepository(context);
-        _service = new TorneoServicios(repo);
+        _service = new ServicioActualizarTorneo(repo);
     }
     private async Task iniciar()
     {
-        await _service.RegistrarNuevoTorneo();
+        await _service.ActualizarTorneo();
     }
     private static async Task Main(string[] args)
     {

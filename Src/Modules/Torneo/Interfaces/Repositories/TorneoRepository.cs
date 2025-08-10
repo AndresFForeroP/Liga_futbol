@@ -16,9 +16,12 @@ namespace Liga_futbol.Src.Modules.Torneo.Interfaces.Repositories
         {
             _context = context;
         }
-        public void Actualizar(Domain.Entities.Torneo entidad)
+        public void Actualizar(Domain.Entities.Torneo entidad, string nombre, int capacidad, DateTime fechaInicio, DateTime fechaFin)
         {
-            throw new NotImplementedException();
+            entidad.Nombre = nombre;
+            entidad.Capacidad = capacidad;
+            entidad.FechaInicio = fechaInicio;
+            entidad.FechaFin = fechaFin;
         }
 
         public void Añadir(Domain.Entities.Torneo entidad)
@@ -26,9 +29,9 @@ namespace Liga_futbol.Src.Modules.Torneo.Interfaces.Repositories
             _context.Torneo.Add(entidad);
         }
 
-        public Task<Domain.Entities.Torneo?> ConseguirPorId(int id)
+        public async Task<Domain.Entities.Torneo?> ConseguirPorId(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Torneo.FirstOrDefaultAsync(t => t.Id == id);
         }
 
         public async Task<IEnumerable<Domain.Entities.Torneo?>> ConseguirTodo() =>
@@ -36,7 +39,7 @@ namespace Liga_futbol.Src.Modules.Torneo.Interfaces.Repositories
 
         public void Eliminar(Domain.Entities.Torneo entidad)
         {
-            throw new NotImplementedException();
+            _context.Torneo.Remove(entidad);
         }
 
         public async Task GuardarAsincronico()
