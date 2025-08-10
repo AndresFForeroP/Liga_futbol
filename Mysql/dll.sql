@@ -23,8 +23,8 @@ CREATE TABLE IF NOT EXISTS TorneoEquipo (
     TorneoId INT,
     EquipoId INT,
     PRIMARY KEY (TorneoId, EquipoId),
-    FOREIGN KEY (TorneoId) REFERENCES Torneo(Id),
-    FOREIGN KEY (EquipoId) REFERENCES Equipo(Id)
+    FOREIGN KEY (TorneoId) REFERENCES Torneo(Id) ON DELETE CASCADE,
+    FOREIGN KEY (EquipoId) REFERENCES Equipo(Id) ON DELETE CASCADE
 );
 
 -- Tabla Persona
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS Jugador (
     Posicion VARCHAR(50) NOT NULL,
     Dorsal INT NOT NULL,
     Precio DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (Id) REFERENCES Persona(Id)
+    FOREIGN KEY (Id) REFERENCES Persona(Id) ON DELETE CASCADE
 );
 
 -- Tabla intermedia JugadorEquipo (historial o vínculo actual)
@@ -53,8 +53,8 @@ CREATE TABLE IF NOT EXISTS JugadorEquipo (
     FechaInicio DATE NOT NULL,
     FechaFin DATE DEFAULT NULL,
     PRIMARY KEY (JugadorId, EquipoId),
-    FOREIGN KEY (JugadorId) REFERENCES Jugador(Id),
-    FOREIGN KEY (EquipoId) REFERENCES Equipo(Id)
+    FOREIGN KEY (JugadorId) REFERENCES Jugador(Id) ON DELETE CASCADE,
+    FOREIGN KEY (EquipoId) REFERENCES Equipo(Id) ON DELETE CASCADE
 );
 
 -- Tabla Transferencia
@@ -66,9 +66,9 @@ CREATE TABLE IF NOT EXISTS Transferencia (
     Tipo VARCHAR(14) NOT NULL,
     Precio DECIMAL(10, 2),
     Fecha DATE NOT NULL,
-    FOREIGN KEY (JugadorId) REFERENCES Jugador(Id),
-    FOREIGN KEY (EquipoOrigenId) REFERENCES Equipo(Id),
-    FOREIGN KEY (EquipoDestinoId) REFERENCES Equipo(Id)
+    FOREIGN KEY (JugadorId) REFERENCES Jugador(Id) ON DELETE CASCADE,
+    FOREIGN KEY (EquipoOrigenId) REFERENCES Equipo(Id) ON DELETE CASCADE,
+    FOREIGN KEY (EquipoDestinoId) REFERENCES Equipo(Id) ON DELETE CASCADE
 );
 
 -- Estadísticas del jugador
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS EstadisticasJugador (
     Asistencias INT DEFAULT 0,
     TarjetasAmarillas INT DEFAULT 0,
     TarjetasRojas INT DEFAULT 0,
-    FOREIGN KEY (JugadorId) REFERENCES Jugador(Id)
+    FOREIGN KEY (JugadorId) REFERENCES Jugador(Id) ON DELETE CASCADE
 );
 
 -- Personal del equipo
@@ -87,8 +87,8 @@ CREATE TABLE IF NOT EXISTS Personal (
     Id INT PRIMARY KEY,
     Tipo VARCHAR(14) NOT NULL,
     EquipoId INT NOT NULL,
-    FOREIGN KEY (Id) REFERENCES Persona(Id),
-    FOREIGN KEY (EquipoId) REFERENCES Equipo(Id)
+    FOREIGN KEY (Id) REFERENCES Persona(Id) ON DELETE CASCADE,
+    FOREIGN KEY (EquipoId) REFERENCES Equipo(Id) ON DELETE CASCADE
 );
 
 -- Notificaciones de equipo
@@ -99,6 +99,6 @@ CREATE TABLE IF NOT EXISTS Notificacion (
     JugadorId INT,
     Tipo VARCHAR(14) NOT NULL,
     Fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (EquipoId) REFERENCES Equipo(Id),
-    FOREIGN KEY (JugadorId) REFERENCES Jugador(Id)
+    FOREIGN KEY (EquipoId) REFERENCES Equipo(Id) ON DELETE CASCADE,
+    FOREIGN KEY (JugadorId) REFERENCES Jugador(Id) ON DELETE CASCADE
 );

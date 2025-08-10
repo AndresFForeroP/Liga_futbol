@@ -133,9 +133,9 @@ INSERT INTO EstadisticasJugador (JugadorId, Goles, Asistencias, TarjetasAmarilla
 --
 -- Inserts para la tabla `Notificacion`
 --
-INSERT INTO Notificacion (Precio, EquipoId, JugadorId) VALUES
-(25000000.00, 5, 1),
-(10000000.00, 4, 4),
-(75000000.00, 3, 7),
-(5000000.00, 6, 8),
-(10000000.00, 2, 9);
+INSERT INTO Notificacion (Precio, Tipo, EquipoId, JugadorId) VALUES
+(25000000.00, 'PRESTAMO', 5, 1),
+(10000000.00, 'PRESTAMO', 4, 4),
+(75000000.00, 'COMPRA', 3, 7),
+(5000000.00, 'COMPRA', 6, 8),
+(10000000.00, 'PRESTAMO', 2, 9);

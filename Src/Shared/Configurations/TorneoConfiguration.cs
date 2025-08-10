@@ -20,7 +20,8 @@ namespace Liga_futbol.Src.Shared.Configurations
             builder.Property(t => t.Capacidad).IsRequired();
             builder.HasMany(t => t.TorneoEquipos)
                    .WithOne(te => te.Torneo)
-                   .HasForeignKey(te => te.TorneoId);
+                   .HasForeignKey(te => te.TorneoId)
+                   .OnDelete(DeleteBehavior.Cascade);
         }
     }
         

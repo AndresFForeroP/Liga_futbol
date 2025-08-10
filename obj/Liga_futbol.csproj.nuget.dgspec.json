@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Downloads\\Nueva carpeta\\Liga_Futbol.NET\\Liga_futbol.csproj": {}
+    "C:\\Proyectos visual\\C#\\examen\\Version final\\Liga_futbol\\Liga_futbol.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Downloads\\Nueva carpeta\\Liga_Futbol.NET\\Liga_futbol.csproj": {
+    "C:\\Proyectos visual\\C#\\examen\\Version final\\Liga_futbol\\Liga_futbol.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Downloads\\Nueva carpeta\\Liga_Futbol.NET\\Liga_futbol.csproj",
+        "projectUniqueName": "C:\\Proyectos visual\\C#\\examen\\Version final\\Liga_futbol\\Liga_futbol.csproj",
         "projectName": "Liga_futbol",
-        "projectPath": "C:\\Users\\user\\Downloads\\Nueva carpeta\\Liga_Futbol.NET\\Liga_futbol.csproj",
+        "projectPath": "C:\\Proyectos visual\\C#\\examen\\Version final\\Liga_futbol\\Liga_futbol.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Downloads\\Nueva carpeta\\Liga_Futbol.NET\\obj\\",
+        "outputPath": "C:\\Proyectos visual\\C#\\examen\\Version final\\Liga_futbol\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
