@@ -2,26 +2,13 @@
 using Liga_futbol.Src.Modules.Torneo.Application.Interfaces;
 using Liga_futbol.Src.Modules.Torneo.Application.Services;
 using Liga_futbol.Src.Modules.Torneo.Interfaces.Repositories;
+using Liga_futbol.Src.Modules.Torneo.UI;
 using Liga_futbol.Src.Shared.Context;
 using Liga_futbol.Src.Shared.Helpers;
 using Microsoft.EntityFrameworkCore;
 
 internal class Program
 {
-    private readonly AppDbContext? _context;
-    readonly TorneoRepository repo = null!;
-    readonly ServicioActualizarTorneo _service = null!;
-    public Program()
-    {
-        var context = DbContextFactory.Create();
-        _context = context;
-        repo = new TorneoRepository(context);
-        _service = new ServicioActualizarTorneo(repo);
-    }
-    private async Task iniciar()
-    {
-        await _service.ActualizarTorneo();
-    }
     private static async Task Main(string[] args)
     {
         // var dbContext = DbContextFactory.Create();
@@ -31,7 +18,12 @@ internal class Program
         // {
         //     Console.WriteLine($"{item.Persona.Nombre}");
         // }
-        var Program = new Program();
-        await Program.iniciar();
+        // var Program = new Program();
+        // await Program.iniciar();
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        var saludo = new DibujoSaludo();
+        var menuPrincipal = new DibujoMenuPrincipal();
+        saludo.Iniciar();
+        await menuPrincipal.Iniciar();
     }
 }

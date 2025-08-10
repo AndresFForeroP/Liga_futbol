@@ -27,6 +27,7 @@ namespace Liga_futbol.Src.Modules.Torneo.Application.Services
             foreach (var Torneo in existentes)
             {
                 Console.WriteLine($"- ID torneo : {Torneo?.Id} - Nombre : {Torneo?.Nombre} - Capacidad : {Torneo?.Capacidad} ");
+                Console.WriteLine($"- Fecha de inicio: {Torneo?.FechaInicio.ToShortDateString()} - Fecha de fin: {Torneo?.FechaFin.ToShortDateString()}");
             }
             do
             {
@@ -38,6 +39,7 @@ namespace Liga_futbol.Src.Modules.Torneo.Application.Services
                     foreach (var Torneo in existentes)
                     {
                         Console.WriteLine($"ID torneo : {Torneo?.Id} - Nombre : {Torneo?.Nombre} - Capacidad : {Torneo?.Capacidad}");
+                        Console.WriteLine($"- Fecha de inicio: {Torneo?.FechaInicio.ToShortDateString()} - Fecha de fin: {Torneo?.FechaFin.ToShortDateString()}");
                     }
                 }
             } while (await _repo.ConseguirPorId(TorneoActualizar) == null);

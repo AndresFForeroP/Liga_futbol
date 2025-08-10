@@ -6,9 +6,9 @@ using Liga_Futbol.src.InterfaceAdapters.MenuPrincipal;
 
 namespace Liga_futbol.Src.Modules.Torneo.UI
 {
-    public class DibujoMenuPrincipal : InterfazMenus
+    public class DibujoMenuPrincipal
     {
-       public void Iniciar()
+       public async Task Iniciar()
         {
             int salida = 0;
             do
@@ -30,19 +30,21 @@ namespace Liga_futbol.Src.Modules.Torneo.UI
                 }
             }
             while (salida != 1 && salida != 2 && salida != 3 && salida != 4 && salida != 5 && salida != 9);
-            SiguienteMenu(salida);
+            await SiguienteMenuAsync(salida);
         }
         public void Dibujar()
         {
             Console.WriteLine(Mensaje);
         }
-        public void SiguienteMenu(int opcion)
+        public async Task SiguienteMenuAsync(int opcion)
         {
             switch (opcion)
             {
                 case 1:
                     Console.Clear();
                     Console.WriteLine("Elegiste Crear Torneo");
+                    var menutorneo = new DibujoMenuTorneo();
+                    await menutorneo.IniciarAsync();
                     break;
                 case 2:
                     Console.Clear();

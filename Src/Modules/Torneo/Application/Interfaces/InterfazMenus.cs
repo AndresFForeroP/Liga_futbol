@@ -9,6 +9,6 @@ namespace Liga_Futbol.src.InterfaceAdapters.MenuPrincipal
     {
         void Iniciar();
         void Dibujar();
-        void SiguienteMenu(int opcion);
+        Task SiguienteMenuAsync(int opcion);
     }
 }
