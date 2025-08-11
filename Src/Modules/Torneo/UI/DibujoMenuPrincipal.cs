@@ -49,6 +49,8 @@ namespace Liga_futbol.Src.Modules.Torneo.UI
                 case 2:
                     Console.Clear();
                     Console.WriteLine("Elegiste Registro Equipos");
+                    var menugestionequipo = new DibujoMenuGestionEquipo();
+                    await menugestionequipo.Iniciar(); 
                     break;
                 case 3:
                     Console.Clear();

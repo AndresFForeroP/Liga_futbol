@@ -76,8 +76,6 @@ namespace Liga_futbol.Src.Modules.Torneo.UI
                         Console.WriteLine("Elegiste Buscar Torneo");
                         Console.WriteLine("Buscar por Id");
                         await _serviceBuscarTorneo.BuscarTorneo();
-                        Console.WriteLine("Presione cualquier tecla para continuar...");
-                        Console.ReadKey();
                         break;
                     case 3:
                         Console.Clear();

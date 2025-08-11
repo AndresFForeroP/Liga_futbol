@@ -30,12 +30,7 @@ namespace Liga_futbol.Src.Modules.Torneo.Application.Services
                 string respuesta = await validarVerTorneos(idtorneo);
                 if (respuesta == "si")
                 {
-                    var existentes = await _repo.ConseguirTodo();
-                    foreach (var Torneo in existentes)
-                    {
-                        Console.WriteLine($"ID torneo : {Torneo?.Id} - Nombre : {Torneo?.Nombre} - Capacidad : {Torneo?.Capacidad}");
-                        Console.WriteLine($"- Fecha de inicio: {Torneo?.FechaInicio.ToShortDateString()} - Fecha de fin: {Torneo?.FechaFin.ToShortDateString()}");
-                    }
+                    await mostrartorneosAsync();
                     Console.WriteLine("Presione cualquier tecla para continuar...");
                     Console.ReadKey();
                     Console.Clear();
@@ -53,6 +48,15 @@ namespace Liga_futbol.Src.Modules.Torneo.Application.Services
                 Console.WriteLine("los datos del torneo son :");
                 Console.WriteLine($"ID torneo : {torneo?.Id} - Nombre : {torneo?.Nombre} - Capacidad : {torneo?.Capacidad}");
                 Console.WriteLine($"- Fecha de inicio: {torneo?.FechaInicio.ToShortDateString()} - Fecha de fin: {torneo?.FechaFin.ToShortDateString()}");
+            }
+        }
+        public async Task mostrartorneosAsync()
+        {
+            var existentes = await _repo.ConseguirTodo();
+            foreach (var Torneo in existentes)
+            {
+                Console.WriteLine($"ID torneo : {Torneo?.Id} - Nombre : {Torneo?.Nombre} - Capacidad : {Torneo?.Capacidad}");
+                Console.WriteLine($"- Fecha de inicio: {Torneo?.FechaInicio.ToShortDateString()} - Fecha de fin: {Torneo?.FechaFin.ToShortDateString()}");
             }
         }
         private int validarid()
