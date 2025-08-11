@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Liga_futbol.Src.Modules.Equipo.UI;
+using Liga_futbol.Src.Modules.Personal.UI;
 
 namespace Liga_futbol.Src.Modules.Torneo.UI
 {
@@ -53,6 +54,8 @@ namespace Liga_futbol.Src.Modules.Torneo.UI
                 case 2:
                     Console.Clear();
                     Console.WriteLine("Elegiste Registrar Cuerpo Tecnico");
+                    var menutecnico = new DibujoMenuTecnico();
+                    await menutecnico.Iniciar();
                     break;
                 case 3:
                     Console.Clear();
