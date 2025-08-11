@@ -15,12 +15,18 @@ namespace Liga_futbol.Src.Modules.Equipo.UI
         private readonly AppDbContext? _context;
         readonly EquipoRepository repo = null!;
         readonly ServicioAgregarEquipo _serviceAgregarEquipo = null!;
+        readonly ServicicioBuscarEquipo _serviceBuscarEquipo = null!;
+        readonly ServicioEliminarEquipo _serviceEliminarEquipo = null!;
+        readonly ServicioActualizarEquipo _serviceActualizarEquipo = null!;
         public DibujoMenuEquipo()
         {
             var context = DbContextFactory.Create();
             _context = context;
             repo = new EquipoRepository(context);
             _serviceAgregarEquipo = new ServicioAgregarEquipo(repo);
+            _serviceBuscarEquipo = new ServicicioBuscarEquipo(repo);
+            _serviceEliminarEquipo = new ServicioEliminarEquipo(repo);
+            _serviceActualizarEquipo = new ServicioActualizarEquipo(repo);
         }
         public async Task Iniciar()
         {
@@ -66,16 +72,17 @@ namespace Liga_futbol.Src.Modules.Equipo.UI
                 case 2:
                     Console.Clear();
                     Console.WriteLine("Elegiste Buscar Equipo");
-                    Console.WriteLine("Presione cualquier tecla para continuar...");
-                    Console.ReadKey();
+                    await _serviceBuscarEquipo.BuscarEquipo();
                     break;
                 case 3:
                     Console.Clear();
                     Console.WriteLine("Elegiste Eliminar Equipo");
+                    await _serviceEliminarEquipo.EliminarEquipo();
                     break;
                 case 4:
                     Console.Clear();
                     Console.WriteLine("Elegiste Actualizar Equipo");
+                    await _serviceActualizarEquipo.ActualizarEquipo();
                     break;
             }
         }

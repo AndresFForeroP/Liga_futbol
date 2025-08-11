@@ -16,9 +16,10 @@ namespace Liga_futbol.Src.Modules.Equipo.Infrastructure.Repository
         {
             _context = context;
         }
-        public void Actualizar(Domain.Entities.Equipo entidad, string nombre, int capacidad, DateTime fechaInicio, DateTime fechaFin)
+        public void Actualizar(Domain.Entities.Equipo entidad, string nombre, string pais)
         {
             entidad.Nombre = nombre;
+            entidad.Pais = pais;
         }
 
         public void Añadir(Domain.Entities.Equipo entidad)
