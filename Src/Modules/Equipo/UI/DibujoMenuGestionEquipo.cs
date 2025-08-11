@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Liga_futbol.Src.Modules.Equipo.UI;
 
 namespace Liga_futbol.Src.Modules.Torneo.UI
 {
     public class DibujoMenuGestionEquipo
     {
-        public void Iniciar()
+        public async Task Iniciar()
         {
             int salida = 0;
             do
@@ -22,7 +23,7 @@ namespace Liga_futbol.Src.Modules.Torneo.UI
                 }
                 if (salida == 1 || salida == 2 || salida == 3 || salida == 4 || salida == 5 || salida == 6)
                 {
-                    SiguienteMenu(salida);
+                    await SiguienteMenu(salida);
                 }
 
             }
@@ -31,19 +32,23 @@ namespace Liga_futbol.Src.Modules.Torneo.UI
             Console.WriteLine("VOLVIENDO AL MENU PRINCIPAL...");
             Thread.Sleep(2000);
             Console.Clear();
+            var menuPrincipal = new DibujoMenuPrincipal();
+            await menuPrincipal.Iniciar();
         }
         public void Dibujar()
         {
             Console.Clear();
             Console.WriteLine(Mensaje);
         }
-        public void SiguienteMenu(int opcion)
+        public async Task SiguienteMenu(int opcion)
         {
             switch (opcion)
             {
                 case 1:
                     Console.Clear();
                     Console.WriteLine("Elegiste Registrar Equipo");
+                    var menuequipo = new DibujoMenuEquipo();
+                    await menuequipo.Iniciar();
                     break;
                 case 2:
                     Console.Clear();
